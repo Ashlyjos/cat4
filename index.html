@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.angularjs.org/1.2.16/angular.js"></script>
+    <script src="index.js"></script>
+  </head>
+
+  <body ng-app="App">
+    <br><h1>Student details</h1><br><br>
+
+
+  <div ng-controller="CrudCtrl">
+    <table>
+      <tr>
+        <td>Student id</td>
+        <td>Name</td>
+        <td>Mobile</td>
+        <td>Age</td>
+        <td>Email</td>
+        <td><span ng-click="add()">Add New</span></td>
+      </tr>
+      <tr ng-repeat="student in students">
+        <td>
+          <input type="text" ng-model="student.id" ng-show="student.editable">
+          <span ng-hide="student.editable">{{ student.id }}</span>
+        </td>
+        <td>
+          <input type="text" ng-model="student.name" ng-show="student.editable">
+          <span ng-hide="student.editable">{{ student.name }}</span>
+        </td>
+        <td>
+           <input type="text" ng-model="student.mobile" ng-show="student.editable">
+          <span ng-hide="student.editable">{{ student.mobile }}</span>
+        </td>
+        <td>
+         <input type="text" ng-model="student.age" ng-show="student.editable">
+          <span ng-hide="student.editable">{{ student.age }}</span>
+        </td>
+        <td>
+         <input type="text" ng-model="student.Email" ng-show="student.editable">
+          <span ng-hide="student.editable">{{ student.Email }}</span>
+        </td>
+        
+        
+          <td>
+          <span ng-click="edit($index)" ng-hide="student.editable">Edit</span>
+          <span ng-click="save($index)" ng-show="student.editable">Save</span>
+          <span ng-click="delete($index)"> | Delete</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  </body>
+
+</html>
+
+
